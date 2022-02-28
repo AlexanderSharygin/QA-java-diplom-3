@@ -1,4 +1,4 @@
-package site.nomoreparties.stellarburgers.Config.config;
+package site.nomoreparties.stellarburgers.Config;
 
 
 import org.aeonbits.owner.Config;
@@ -25,4 +25,7 @@ public interface AppConfig extends Config {
 
     @Key("private.cabinet.url")
     String privateCabinetUrl();
+
+    @Key("testing.browser")
+    String testingBrowser();
 }

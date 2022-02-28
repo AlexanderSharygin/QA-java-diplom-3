@@ -3,7 +3,7 @@ package site.nomoreparties.stellarburgers.global;
 import com.github.javafaker.Faker;
 import org.aeonbits.owner.ConfigFactory;
 import site.nomoreparties.stellarburgers.APIHelpers.APIRequests;
-import site.nomoreparties.stellarburgers.Config.config.AppConfig;
+import site.nomoreparties.stellarburgers.Config.AppConfig;
 import site.nomoreparties.stellarburgers.po.Pages;
 
 public class ApplicationManager {

@@ -14,6 +14,7 @@ public class TestBase {
 
     @BeforeAll
     public static void prepare() {
+        Configuration.browser = app.config.testingBrowser();
         Configuration.startMaximized = true;
     }
 
