@@ -17,9 +17,13 @@ import static org.apache.http.HttpStatus.SC_ACCEPTED;
 @Story("Registration with correct/incorrect login")
 public class RegistrationTests extends TestBase {
     SoftAssertions sortAssert = new SoftAssertions();
+    private String name;
+    private String email;
 
     @BeforeEach
     public void beforeTestActions() {
+        name = app.fakeData.name().firstName();
+        email = name + "@UItest.com";
         open(app.config.loginPageUrl());
         app.pages.loginPage.waitForLoad();
         app.pages.loginPage.clickRegisterLink();
@@ -29,8 +33,6 @@ public class RegistrationTests extends TestBase {
     @Test
     @DisplayName("Registration with incorrect login")
     public void warningForIncorrectPasswordIsShown() {
-        String name = app.fakeData.name().firstName();
-        String email = name + "@UItest.com";
         String password = RandomStringUtils.randomAlphabetic(5);
         app.pages.registrationPage.register(name, email, password);
         Assertions.assertTrue(app.pages.registrationPage.isIncorrectPasswordValidationPresent());
@@ -39,8 +41,6 @@ public class RegistrationTests extends TestBase {
     @Test
     @DisplayName("Registration with correct login")
     public void accountSuccessfullyRegisteredCorrectPassword() {
-        String name = app.fakeData.name().firstName();
-        String email = name + "@UItest.com";
         String password = RandomStringUtils.randomAlphabetic(6);
         app.pages.registrationPage.register(name, email, password);
         app.pages.registrationPage.waitForClose();
